@@ -17,15 +17,22 @@ Just activate the plugin, and every WordPress search input will instantly search
 
 == Installation ==
 
-= Automatic installation =
+= From your WordPress dashboard =
 
-Automatic installation is the easiest option as WordPress handles the file transfers itself and you don’t need to leave your web browser. To do an automatic install of BuddyPress Global Search, log in to your WordPress dashboard, navigate to the Plugins menu and click Add New.
+1. Visit 'Plugins > Add New'
+2. Search for 'BuddyPress Global Search'
+3. Activate BuddyPress Global Search from your Plugins page.
 
-In the search field type "BuddyPress Global Search" and click Search Plugins. Once you’ve found our search plugin you can view details about it such as the the point release, rating and description. Most importantly of course, you can install it by simply clicking "Install Now".
+= From WordPress.org =
 
-= Manual installation =
+1. Download BuddyPress Global Search.
+2. Upload the 'buddypress-global-search' directory to your '/wp-content/plugins/' directory, using your favorite method (ftp, sftp, etc...)
+3. Activate BuddyPress Global Search from your Plugins page.
 
-The manual installation method involves downloading our BuddyPress Global Search plugin and uploading it to your webserver via your favorite FTP application. The WordPress codex contains [instructions on how to do this here](http://codex.wordpress.org/Managing_Plugins#Manual_Plugin_Installation).
+= Configuration =
+
+1. Visit 'Settings > BP Global Search' and select which components should be searchable.
+2. Adjust the CSS of your theme as needed, to make everything pretty.
 
 == Frequently Asked Questions ==
 
