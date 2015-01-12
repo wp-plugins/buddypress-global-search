@@ -16,6 +16,8 @@ Let your members search through every BuddyPress component, along with pages and
 
 Just activate the plugin, and every WordPress search input will instantly search your entire BuddyPress site, returning the results in a native tabbed interface right on your default Search Results template, automatically styled by BuddyPress to fit with your theme.
 
+BuddyPress Global Search is built by the experienced developers at BuddyBoss who also offer premium [BuddyPress themes](http://www.buddyboss.com/themes/ "BuddyPress themes from BuddyBoss") and [plugins](http://www.buddyboss.com/plugins/ "BuddyPress plugins from BuddyBoss") to build your social network.
+
 == Installation ==
 
 = From your WordPress dashboard =
