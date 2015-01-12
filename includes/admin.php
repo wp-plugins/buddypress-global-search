@@ -166,8 +166,10 @@ if (!class_exists('BuddyBoss_Global_Search_Admin')):
 		public function options_page() {
 			?>
 			<div class="wrap">
-				<div class="icon32" id="icon-options-general"><br></div>
 				<h2><?php _e( 'BuddyPress Global Search', 'buddypress-global-search' ); ?></h2>
+				<div class="updated fade">
+					<p><?php _e( 'Need BuddyPress customizations?', 'buddypress-global-search' ); ?>  &nbsp;<a href="http://buddyboss.com/buddypress-developers/"><?php _e( 'Say hello.', 'buddypress-global-search' ); ?></a></p>
+				</div>
 				<div class="content-wrapper clearfix">
 					<div class="settings">
 						<div class="padder">
@@ -230,7 +232,7 @@ if (!class_exists('BuddyBoss_Global_Search_Admin')):
 		public function setting_items_to_search() {
 			$items_to_search = $this->option('items-to-search');
 
-			echo '<p class="description">' . __('Search the following components:', 'buddypress-global-search') . '</p>';
+			echo '<p class="description">' . __('Search the following components:', 'buddypress-global-search') . '</p><br />';
 			
 			$items = array(
 				'posts'		=> __( 'Blog Posts', 'buddypress-global-search' ),

@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: BuddyPress Global Search v1.0.0\n"
+"Project-Id-Version: BuddyPress Global Search v1.0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2015-01-11 21:09-0600\n"
+"PO-Revision-Date: 2015-01-11 22:23-0600\n"
 "Last-Translator: BuddyBoss <support@buddyboss.com>\n"
 "Language-Team: BuddyBoss <support@buddyboss.com>\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 # @ default
-#: includes/admin.php:179
+#: includes/admin.php:181
 msgid "Save Changes"
 msgstr ""
 
@@ -60,42 +60,42 @@ msgid "Items To Search"
 msgstr ""
 
 # @ buddypress-global-search
-#: includes/admin.php:170
+#: includes/admin.php:169
 msgid "BuddyPress Global Search"
 msgstr ""
 
 # @ buddypress-global-search
-#: includes/admin.php:233
+#: includes/admin.php:235
 msgid "Search the following components:"
 msgstr ""
 
 # @ buddypress-global-search
-#: includes/admin.php:236
+#: includes/admin.php:238
 msgid "Blog Posts"
 msgstr ""
 
 # @ buddypress-global-search
-#: includes/admin.php:237
+#: includes/admin.php:239
 msgid "Members"
 msgstr ""
 
 # @ buddypress-global-search
-#: includes/admin.php:242
+#: includes/admin.php:244
 msgid "Forums"
 msgstr ""
 
 # @ buddypress-global-search
-#: includes/admin.php:247
+#: includes/admin.php:249
 msgid "Groups"
 msgstr ""
 
 # @ buddypress-global-search
-#: includes/admin.php:248
+#: includes/admin.php:250
 msgid "Activity"
 msgstr ""
 
 # @ buddypress-global-search
-#: includes/admin.php:249
+#: includes/admin.php:251
 msgid "Messages"
 msgstr ""
 
@@ -117,7 +117,7 @@ msgid "Search Results"
 msgstr ""
 
 # @ buddypress-global-search
-#: includes/main-class.php:392
+#: includes/main-class.php:394
 msgid "Loading Suggestions"
 msgstr ""
 
@@ -163,12 +163,12 @@ msgstr ""
 msgid "Sorry, but nothing matched your search criteria. Please try again with some different keywords."
 msgstr ""
 
-# @ default
-#: includes/vendor/wp-updates-plugin.php:87
-msgid "An Unexpected HTTP Error occurred during the API request.</p> <p><a href=\"?\" onclick=\"document.location.reload(); return false;\">Try again</a>"
+# @ buddypress-global-search
+#: includes/admin.php:171
+msgid "Need BuddyPress customizations?"
 msgstr ""
 
-# @ default
-#: includes/vendor/wp-updates-plugin.php:91
-msgid "An unknown error occurred"
+# @ buddypress-global-search
+#: includes/admin.php:171
+msgid "Say hello."
 msgstr ""
