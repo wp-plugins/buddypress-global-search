@@ -55,7 +55,8 @@ Yes, BuddyPress Global Search should work with any theme, and will adopt your Bu
 
 == Screenshots ==
 
-1. Coming soon...
+1. **Dropdown** - live dropdown showing results from all BuddyPress components
+2. **Admin** - set which components should be searchable
 
 == Changelog ==
 
