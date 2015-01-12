@@ -3,7 +3,7 @@ Contributors: buddyboss
 Tags: buddypress, search, social networking, activity, profiles, messaging, friends, groups, forums, notifications, settings, social, community, networks, networking
 Requires at least: 3.8
 Tested up to: 4.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -61,6 +61,9 @@ Yes, BuddyPress Global Search should work with any theme, and will adopt your Bu
 2. **Admin** - set which components should be searchable
 
 == Changelog ==
+
+= 1.0.2 - 12/01/2014 =
+* Updated readme
 
 = 1.0.1 - 11/01/2014 =
 * Minor update
