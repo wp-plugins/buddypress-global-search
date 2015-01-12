@@ -11,9 +11,10 @@ BuddyPress Global Search allows for a global, unified search of all BuddyPress c
 
 == Description ==
 
+
 Let your members search through every BuddyPress component, along with pages and posts and custom post types of your choice, all in one unified search bar with a live dropdown of results.
 
-Just activate the plugin, and every WordPress search input will instantly search your entire BuddyPress site, returning the results in a beautiful tabbed interface on your default Search Results template, styled automatically by BuddyPress to fit with your theme.
+Just activate the plugin, and every WordPress search input will instantly search your entire BuddyPress site, returning the results in a native tabbed interface right on your default Search Results template, automatically styled by BuddyPress to fit with your theme.
 
 == Installation ==
 
