@@ -168,7 +168,7 @@ if (!class_exists('BuddyBoss_Global_Search_Admin')):
 			<div class="wrap">
 				<h2><?php _e( 'BuddyPress Global Search', 'buddypress-global-search' ); ?></h2>
 				<div class="updated fade">
-					<p><?php _e( 'Need BuddyPress customizations?', 'buddypress-global-search' ); ?>  &nbsp;<a href="http://buddyboss.com/buddypress-developers/"><?php _e( 'Say hello.', 'buddypress-global-search' ); ?></a></p>
+					<p><?php _e( 'Need BuddyPress customizations?', 'buddypress-global-search' ); ?>  &nbsp;<a href="http://buddyboss.com/buddypress-developers/" target="_blank"><?php _e( 'Say hello.', 'buddypress-global-search' ); ?></a></p>
 				</div>
 				<div class="content-wrapper clearfix">
 					<div class="settings">

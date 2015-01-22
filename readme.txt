@@ -3,7 +3,7 @@ Contributors: buddyboss
 Tags: buddypress, search, social networking, activity, profiles, messaging, friends, groups, forums, notifications, settings, social, community, networks, networking
 Requires at least: 3.8
 Tested up to: 4.1
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -43,10 +43,6 @@ BuddyPress Global Search is built by the experienced developers at BuddyBoss who
 
 For help setting up and configuring any BuddyBoss plugin please refer to our [tutorials](http://www.buddyboss.com/tutorials/).
 
-= Where can I get support or talk to other users? =
-
-If you get stuck you can ask for help on the [BuddyBoss Support Forum](http://www.buddyboss.com/support-forums/).
-
 = Does this plugin require BuddyPress? =
 
 Yes, it requires [BuddyPress](https://wordpress.org/plugins/buddypress/) to work.
@@ -55,6 +51,14 @@ Yes, it requires [BuddyPress](https://wordpress.org/plugins/buddypress/) to work
 
 Yes, BuddyPress Global Search should work with any theme, and will adopt your BuddyPress styling for search results. It may require some styling to make it match perfectly, depending on your theme.
 
+= Does it come with a language translation file? =
+
+Yes, as well as translations for English, German, and Swedish
+
+= Where can I request customizations? =
+
+For BuddyPress customizations, submit your request at [BuddyBoss](http://www.buddyboss.com/buddypress-developers/).
+
 == Screenshots ==
 
 1. **Dropdown** - live dropdown showing results from all BuddyPress components
@@ -62,22 +66,27 @@ Yes, BuddyPress Global Search should work with any theme, and will adopt your Bu
 
 == Changelog ==
 
-= 1.0.2 - 12/01/2014 =
+= 1.0.3 =
+* Forum search results now displaying in dropdown
+* Added Swedish translations - credits to Anton Andreasson
+* Added German translations - credits to Marianne Taubl
+
+= 1.0.2 =
 * Updated readme
 
-= 1.0.1 - 11/01/2014 =
+= 1.0.1 =
 * Minor update
 
-= 1.0.0 - 11/01/2014 =
+= 1.0.0 =
 * Initial public release
 * Removed WP-Updates, now updating via WP-Repo
 
-= 0.0.3 - 22/12/2014 =
+= 0.0.3 =
 * Minor bug fixes
 
-= 0.0.2 - 18/12/2014 =
+= 0.0.2 =
 * Removed empty a tag from autosuggest dropdown items
 * Made pagination links dynamic, instead of page refresh
 
-= 0.0.1 - 08/12/2014 =
+= 0.0.1 =
 * Initial beta version
