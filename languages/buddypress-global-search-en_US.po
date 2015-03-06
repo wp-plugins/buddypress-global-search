@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: BuddyPress Global Search v1.0.8\n"
+"Project-Id-Version: BuddyPress Global Search v1.0.9\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2015-03-04 19:29-0500\n"
+"PO-Revision-Date: 2015-03-06 00:08-0500\n"
 "Last-Translator: BuddyBoss <support@buddyboss.com>\n"
 "Language-Team: BuddyBoss <support@buddyboss.com>\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr ""
 # @ buddypress-global-search
 #: includes/class.BBoss_Global_Search_Helper.php:95
 #: includes/class.BBoss_Global_Search_Helper.php:104
-#: includes/main-class.php:174 includes/main-class.php:183
+#: includes/main-class.php:177 includes/main-class.php:186
 #: includes/search-types/class.BBoss_Global_Search_Type.php:39
 #: includes/search-types/class.BBoss_Global_Search_Type.php:48
 msgid "Cheatin&#8217; huh?"
@@ -117,7 +117,7 @@ msgid "Search Results"
 msgstr ""
 
 # @ buddypress-global-search
-#: includes/main-class.php:432
+#: includes/main-class.php:435
 msgid "Loading Suggestions"
 msgstr ""
 
@@ -197,4 +197,9 @@ msgstr ""
 # @ buddypress-global-search
 #: includes/admin.php:402
 msgid "Hide this notice"
+msgstr ""
+
+# @ buddypress-global-search
+#: includes/plugins/awpcp/index.php:65
+msgid "Classifieds"
 msgstr ""
