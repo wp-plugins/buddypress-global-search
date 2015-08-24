@@ -3,8 +3,8 @@ Contributors: buddyboss
 Donate link: http://www.buddyboss.com/donate/
 Tags: buddypress, search, social networking, activity, profiles, messaging, friends, groups, forums, notifications, settings, social, community, networks, networking
 Requires at least: 3.8
-Tested up to: 4.1.1
-Stable tag: 1.1.0
+Tested up to: 4.2.3
+Stable tag: 1.1.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -69,6 +69,17 @@ For BuddyPress customizations, submit your request at [BuddyBoss](http://www.bud
 2. **Admin** - set which components should be searchable
 
 == Changelog ==
+
+= 1.1.1 = 
+* Fixed plugin conflict with Invite Anyone
+* Fixed plugin conflict with Form Maker
+* Added support for Advanced Custom Fields (ACF) plugin
+* Added topic title to forum search
+* Added patch for XSS Vulnerability
+* CSS fixes for Ajax search results
+* Fixed warning messages with latest BuddyPress
+* Added French translations - credits to Jean-Pierre Michaud
+* Added Brazilian Portuguese translations - credits to Filipi Zimermann
 
 = 1.1.0 = 
 * Member search by xProfile fields (username, email, etc.)

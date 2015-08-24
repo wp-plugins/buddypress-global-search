@@ -45,6 +45,8 @@ if (!class_exists('BuddyBoss_Global_Search_Plugin')):
 			//extensions
 			'plugins/search-cpt/index',
 			'plugins/awpcp/index',
+			'plugins/search-acf/index',
+            'plugins/invite-anyone/index',
 		);
 
 		/**
@@ -412,13 +414,13 @@ if (!class_exists('BuddyBoss_Global_Search_Plugin')):
 		 */
 		public function assets(){
 			wp_enqueue_style( 'jquery-ui', $this->assets_url . '/css/jquery-ui.min.css', '1.11.2' );
-			//wp_enqueue_style( 'buddypress-global-search', $this->assets_url . '/css/buddypress-global-search.css', '1.0.9' );
-			wp_enqueue_style( 'buddypress-global-search', $this->assets_url . '/css/buddypress-global-search.min.css', '1.0.9' );
+//			wp_enqueue_style( 'buddypress-global-search', $this->assets_url . '/css/buddypress-global-search.css', '1.1.1' );
+			wp_enqueue_style( 'buddypress-global-search', $this->assets_url . '/css/buddypress-global-search.min.css', '1.1.1' );
 			
 			
 			wp_enqueue_script( 'jquery-ui-autocomplete' );
-			//wp_enqueue_script( 'buddypress-global-search', $this->assets_url . '/js/buddypress-global-search.js', array( 'jquery', 'jquery-ui-autocomplete' ), '1.0.4' );
-			wp_enqueue_script( 'buddypress-global-search', $this->assets_url . '/js/buddypress-global-search.min.js', array( 'jquery', 'jquery-ui-autocomplete' ), '1.0.4' );
+			//wp_enqueue_script( 'buddypress-global-search', $this->assets_url . '/js/buddypress-global-search.js', array( 'jquery', 'jquery-ui-autocomplete' ), '1.0.4', true );
+			wp_enqueue_script( 'buddypress-global-search', $this->assets_url . '/js/buddypress-global-search.min.js', array( 'jquery', 'jquery-ui-autocomplete' ), '1.0.4', true );
 			
 			if(function_exists("bp_is_messages_component")) {
 				// Include the autocomplete JS for composing a message.

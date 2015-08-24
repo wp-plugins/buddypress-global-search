@@ -374,7 +374,7 @@ if (!class_exists('BuddyBoss_Global_Search_Admin')):
 
 			// Where are we redirecting to?
 			$base_url = trailingslashit(network_admin_url()) . 'settings.php';
-			$redirect_url = add_query_arg(array( 'page' => $this->plugin_slug, 'updated' => 'true' ), $base_url);
+			$redirect_url = esc_url_raw(add_query_arg(array( 'page' => $this->plugin_slug, 'updated' => 'true' ), $base_url));
 
 			// Redirect
 			wp_redirect($redirect_url);
@@ -393,12 +393,12 @@ if (!class_exists('BuddyBoss_Global_Search_Admin')):
 			
 			// Where are we redirecting to?
 			$base_url = trailingslashit( network_admin_url() ) . 'settings.php';
-			$settings_url = add_query_arg( array( 'page' => $this->plugin_slug ), $base_url );
+			$settings_url = esc_url(add_query_arg( array( 'page' => $this->plugin_slug ), $base_url ));
 			$settings_link = "<a href='" . esc_url( $settings_url ) . "'>" . __( 'Settings', 'buddypress-global-search' ) . "</a>";
 			
 			$notice = sprintf( __( "Hey! BuddyPress Global Search has better integration with multisite now. Your settings might have been reset to defaults after update. Please check your %s.", 'buddypress-global-search' ), $settings_link );
 
-			$hide_notice_url = add_query_arg( array( 'hidenotice' => true ), $settings_url );
+			$hide_notice_url = esc_url(add_query_arg( array( 'hidenotice' => true ), $settings_url ));
 			
 			echo "<div class='update-nag'><p>{$notice}</p><p><a href='{$hide_notice_url}' class='button'>". __( 'Hide this notice', 'buddypress-global-search' ) ."</a></div>";
 		}

@@ -35,7 +35,11 @@ AJAX SEARCH
     -webkit-box-shadow: 0px 2px 3px 0px rgba(50, 50, 50, 0.4);
     -moz-box-shadow:    0px 2px 3px 0px rgba(50, 50, 50, 0.4);
     box-shadow:         0px 2px 3px 0px rgba(50, 50, 50, 0.4);
+	max-height: 80%;
     min-width: 280px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+    padding: 0;
 }
 .ui-widget-content {
     border: none;
@@ -50,6 +54,10 @@ AJAX SEARCH
     padding: 14px 10px 5px;
     position: relative;
     top: -1px;
+    box-sizing: border-box;
+}
+.bb-global-search-ac li.bbls-category a {
+    font-weight: 600;
 }
 .bb-global-search-ac li:not(.bbls-category) {
     padding: 0 10px;
@@ -67,8 +75,14 @@ AJAX SEARCH
     border-width: 0;
     margin: 0;
 }
+.bb-global-search-ac.ui-menu .ui-menu-item.ui-state-focus{
+    background:transparent;
+    border: none;
+    color: inherit;
+}
 .bb-global-search-ac.ui-menu .ui-menu-item {
     list-style-image: none;
+    box-sizing: border-box;
 }
 .bb-global-search-ac.ui-menu .ui-menu-item.ui-state-hover, .bb-global-search-ac.ui-menu .ui-menu-item:hover { background: #f4f5f6; }
 .bb-global-search-ac.ui-menu .ui-menu-item:last-child {
@@ -92,8 +106,11 @@ AJAX SEARCH
     margin: 0;
 }
 
-
-
+@media screen and (max-width:720px) {
+    .bb-global-search-ac.ui-autocomplete {
+        overflow-y: scroll;
+    }
+}
 /* +++++++++++++++++++++++++++++++++++++++
 SEARCH RESULTS PAGE
 +++++++++++++++++++++++++++++++++++++++ */

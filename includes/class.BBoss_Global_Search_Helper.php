@@ -165,7 +165,7 @@ if (!class_exists('BBoss_Global_Search_Helper')):
 		public function ajax_search(){
 			check_ajax_referer( 'bboss_global_search_ajax', 'nonce' );
 			
-			if($_POST["view"] == "content") {
+			if( isset($_POST["view"]) && $_POST["view"] == "content") {
 				
 				$_GET["s"] = $_POST["s"];
 				if(!empty($_POST["subset"])) {
@@ -237,7 +237,7 @@ if (!class_exists('BBoss_Global_Search_Helper')):
 				
 				/* _______________________________ */
 				$url = $this->search_page_search_url();
-				$url = add_query_arg( array( 'no_frame' => '1' ), $url );
+				$url = esc_url(add_query_arg( array( 'no_frame' => '1' ), $url ));
 				$type_mem = "";
 				foreach( $this->search_results['all']['items'] as $item_id=>$item ){
 					$new_row = array( 'value'=>$item['html'] );
@@ -254,7 +254,7 @@ if (!class_exists('BBoss_Global_Search_Helper')):
 						$cat_row = $new_row;
 						$cat_row["type"] = $item['type'];
 						$cat_row['type_label'] = $type_label;
-						$category_search_url = add_query_arg( array( 'subset' => $item['type'] ), $url );
+						$category_search_url = esc_url(add_query_arg( array( 'subset' => $item['type'] ), $url ));
 						$cat_row["value"] = "<span><a href='" . esc_url( $category_search_url ) . "'>" . $type_label . "</a></span>";
 						$search_results[] = $cat_row;
 					}
@@ -605,7 +605,7 @@ if (!class_exists('BBoss_Global_Search_Helper')):
 			$url = home_url( '/' );
 			
 			if(!empty($value)){
-				$url = add_query_arg( 's',urlencode($value), $url );
+				$url = esc_url(add_query_arg( 's',urlencode($value), $url ));
 			}
 			
 			return $url;
@@ -616,7 +616,7 @@ if (!class_exists('BBoss_Global_Search_Helper')):
 		 */
 		private function search_page_search_url(){
 			$base_url = $this->search_page_url();
-			$full_url = add_query_arg( 's', urlencode( $this->search_args['search_term'] ), $base_url );
+			$full_url = esc_url(add_query_arg( 's', urlencode( $this->search_args['search_term'] ), $base_url ));
 			//for now we only have one filter in url
 			return $full_url;
 		}
@@ -650,7 +650,7 @@ if (!class_exists('BBoss_Global_Search_Helper')):
 					$label .= "<span class='count'>" . (int)$this->search_results[$item]['total_match_count'] . "</span>";
 				}
 				
-				$tab_url = add_query_arg( 'subset', $item, $search_url );
+				$tab_url = esc_url(add_query_arg( 'subset', $item, $search_url ));
 				echo "<li class='{$class} {$item}' data-item='{$item}'><a href='" . esc_url($tab_url) . "'>{$label}</a></li>";
 			}
 		}
