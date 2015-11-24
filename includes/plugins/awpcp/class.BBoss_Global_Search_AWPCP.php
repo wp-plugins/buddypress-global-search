@@ -69,7 +69,16 @@ if (!class_exists('BBoss_Global_Search_AWPCP')):
 			
 			$query_placeholder[] = $search_term;
 			$query_placeholder[] = $search_term;
-			return $wpdb->prepare( $sql, $query_placeholder );
+			$sql = $wpdb->prepare( $sql, $query_placeholder );
+            
+            return apply_filters( 
+                'BBoss_Global_Search_AWPCP_sql', 
+                $sql, 
+                array( 
+                    'search_term'           => $search_term,
+                    'only_totalrow_count'   => $only_totalrow_count,
+                ) 
+            );
 		}
 		
 		protected function generate_html( $template_type='' ){

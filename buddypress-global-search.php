@@ -5,7 +5,7 @@
  * Description: Ajax powered global BuddyPress search
  * Author:      BuddyBoss
  * Author URI:  http://buddyboss.com
- * Version:     1.1.1
+ * Version:     1.1.2
  */
 // Exit if accessed directly
 if (!defined('ABSPATH'))
@@ -18,7 +18,7 @@ if (!defined('ABSPATH'))
  */
 // Codebase version
 if (!defined('BUDDYBOSS_GLOBAL_SEARCH_PLUGIN_VERSION')) {
-	define('BUDDYBOSS_GLOBAL_SEARCH_PLUGIN_VERSION', '1.1.1');
+	define('BUDDYBOSS_GLOBAL_SEARCH_PLUGIN_VERSION', '1');
 }
 
 // Database version
@@ -93,4 +93,22 @@ function buddyboss_global_search() {
 
 	return $buddyboss_global_search;
 }
+
+/**
+ * Register BuddyBoss Menu Page
+ */
+if ( !function_exists( 'register_buddyboss_menu_page' ) ) {
+
+	function register_buddyboss_menu_page() {
+		// Set position with odd number to avoid confict with other plugin/theme.
+		add_menu_page( 'BuddyBoss', 'BuddyBoss', 'manage_options', 'buddyboss-settings', '', buddyboss_global_search()->assets_url . '/images/logo.svg', 61.000129 );
+
+		// To remove empty parent menu item.
+		add_submenu_page( 'buddyboss-settings', 'BuddyBoss', 'BuddyBoss', 'manage_options', 'buddyboss-settings' );
+		remove_submenu_page( 'buddyboss-settings', 'buddyboss-settings' );
+	}
+
+	add_action( 'admin_menu', 'register_buddyboss_menu_page' );
+}
+
 ?>

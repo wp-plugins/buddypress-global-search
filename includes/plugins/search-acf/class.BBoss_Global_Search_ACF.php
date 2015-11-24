@@ -97,7 +97,7 @@ if ( ! class_exists( 'BBoss_Global_Search_ACF' ) ) {
 					$query_placeholder1[] = $search_term;
 				}
 				//Post query ends
-				return $wpdb->prepare( $sql, $query_placeholder1 );
+				$sql = $wpdb->prepare( $sql, $query_placeholder1 );
 			}
 			
 			 
@@ -124,10 +124,17 @@ if ( ! class_exists( 'BBoss_Global_Search_ACF' ) ) {
 				for( $i = 1; $i <= $count_acf_meta_objects; $i++ ) {
 					$query_placeholder2[] = $search_term;
 				}
-				return $wpdb->prepare( $user_sql, $query_placeholder2 );
+				$sql = $wpdb->prepare( $user_sql, $query_placeholder2 );
 			}
 		
-			
+			return apply_filters( 
+                'BBoss_Global_Search_ACF_sql', 
+                $sql, 
+                array( 
+                    'search_term'           => $search_term,
+                    'only_totalrow_count'   => $only_totalrow_count,
+                ) 
+            );
 		}
 
 		protected function generate_html( $template_type = '' ) {

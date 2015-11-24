@@ -4,7 +4,7 @@ Donate link: http://www.buddyboss.com/donate/
 Tags: buddypress, search, social networking, activity, profiles, messaging, friends, groups, forums, notifications, settings, social, community, networks, networking
 Requires at least: 3.8
 Tested up to: 4.2.3
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -69,6 +69,12 @@ For BuddyPress customizations, submit your request at [BuddyBoss](http://www.bud
 2. **Admin** - set which components should be searchable
 
 == Changelog ==
+
+= 1.1.2 = 
+* Added filter to search
+* Made individual search queries filterable
+* Fixed Message Compose Autocomplete conflict
+* Fixed CSS conflicts
 
 = 1.1.1 = 
 * Fixed plugin conflict with Invite Anyone

@@ -413,9 +413,9 @@ if (!class_exists('BuddyBoss_Global_Search_Plugin')):
 		 * @return void
 		 */
 		public function assets(){
-			wp_enqueue_style( 'jquery-ui', $this->assets_url . '/css/jquery-ui.min.css', '1.11.2' );
-//			wp_enqueue_style( 'buddypress-global-search', $this->assets_url . '/css/buddypress-global-search.css', '1.1.1' );
-			wp_enqueue_style( 'buddypress-global-search', $this->assets_url . '/css/buddypress-global-search.min.css', '1.1.1' );
+			wp_enqueue_style( 'jquery-ui-search', $this->assets_url . '/css/jquery-ui.min.css', '1.11.2' );
+//			wp_enqueue_style( 'buddypress-global-search', $this->assets_url . '/css/buddypress-global-search.css', '1.1.2' );
+			wp_enqueue_style( 'buddypress-global-search', $this->assets_url . '/css/buddypress-global-search.min.css', '1.1.2' );
 			
 			
 			wp_enqueue_script( 'jquery-ui-autocomplete' );
@@ -448,6 +448,7 @@ if (!class_exists('BuddyBoss_Global_Search_Plugin')):
 		/* Print inline JS for initializing the bp messages autocomplete.
 		 * Proper updated auto complete code for buddypress message compose (replacing autocompletefb script).
 		 * @todo : Why this inline code is not at proper file.
+		 * @clean: This is not working.
 		 */
 		public function messages_autocomplete_init_jsblock() {
 			?>
@@ -455,7 +456,7 @@ if (!class_exists('BuddyBoss_Global_Search_Plugin')):
 			<script type="text/javascript">
 					window.user_profiles = Array();
 						jQuery(document).ready(function() {
-							   jQuery(".send-to-input").autocomplete({
+							   var obj = jQuery(".send-to-input").autocomplete({
 									   source: function(request, response) {
 											   jQuery("body").data("ac-item-p","even");
 											   var term = request.term;
@@ -467,7 +468,7 @@ if (!class_exists('BuddyBoss_Global_Search_Plugin')):
 													   'action': 'messages_autocomplete_results',
 													   'search_term': request.term
 											   };
-											   $.ajax({
+											   jQuery.ajax({
 													   url: ajaxurl + '?q=' + request.term + '&limit=10',
 													   data: data,
 													   success: function(data) {
@@ -502,11 +503,13 @@ if (!class_exists('BuddyBoss_Global_Search_Plugin')):
 											   return false;
 									   },
 									   focus: function(event, ui) {
-											   $(".ui-autocomplete li").removeClass("ui-state-hover");
-											   $(".ui-autocomplete").find("li:has(a.ui-state-focus)").addClass("ui-state-hover");
+											   jQuery(".ui-autocomplete li").removeClass("ui-state-hover");
+											   jQuery(".ui-autocomplete").find("li:has(a.ui-state-focus)").addClass("ui-state-hover");
 											   return false;
 									   }
-							   }).data("ui-autocomplete")._renderItem = function(ul, item) {
+							   });
+                            
+                               obj.data("ui-autocomplete")._renderItem = function(ul, item) {
 									   ul.addClass("ac_results");
 									   if (jQuery("body").data("ac-item-p") == "even"){
 											c = "ac_event";
@@ -515,8 +518,14 @@ if (!class_exists('BuddyBoss_Global_Search_Plugin')):
 											c = "ac_odd";
 											jQuery("body").data("ac-item-p","even");
 										}
-									   return $("<li class='"+c+"'>").append("<a>" + item.label + "</a>").appendTo(ul);
+									   return jQuery("<li class='"+c+"'>").append("<a>" + item.label + "</a>").appendTo(ul);
 							   };
+                            
+                                obj.data("ui-autocomplete")._resizeMenu = function () {
+                                    var ul = this.menu.element;
+                                    ul.outerWidth(this.element.outerWidth());
+                                };
+                            
 							   jQuery(document).on("click", ".selected-user", function() {
 									   jQuery(this).remove();
 							   });

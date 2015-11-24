@@ -136,7 +136,16 @@ if (!class_exists('BBoss_Global_Search_Messages')):
 			$query_placeholder[] = get_current_user_id();
 			$query_placeholder[] = get_current_user_id();
 			
-			return $wpdb->prepare( $sql, $query_placeholder );
+			$sql = $wpdb->prepare( $sql, $query_placeholder );
+            
+            return apply_filters( 
+                'BBoss_Global_Search_Messages_sql', 
+                $sql, 
+                array( 
+                    'search_term'           => $search_term,
+                    'only_totalrow_count'   => $only_totalrow_count,
+                ) 
+            );
 		}
 		
 		protected function generate_html( $template_type='' ){

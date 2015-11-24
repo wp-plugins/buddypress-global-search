@@ -255,7 +255,8 @@ if (!class_exists('BBoss_Global_Search_Helper')):
 						$cat_row["type"] = $item['type'];
 						$cat_row['type_label'] = $type_label;
 						$category_search_url = esc_url(add_query_arg( array( 'subset' => $item['type'] ), $url ));
-						$cat_row["value"] = "<span><a href='" . esc_url( $category_search_url ) . "'>" . $type_label . "</a></span>";
+						$html = "<span><a href='" . esc_url( $category_search_url ) . "'>" . $type_label . "</a></span>";
+                        $cat_row["value"] = apply_filters('buddypress_gs_autocomplete_category', $html, $item['type'], $url, $type_label);
 						$search_results[] = $cat_row;
 					}
 					

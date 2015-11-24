@@ -27,11 +27,12 @@ if (!class_exists('BuddyBoss_Global_Search_Admin')):
 		 * @var array
 		 */
 		public $options = array();
+		private $plugin_settings_tabs = array();
 
 		private $network_activated = false,
 			$plugin_slug = 'buddyboss-globalsearch',
 			$menu_hook = 'admin_menu',
-			$settings_page = 'options-general.php',
+			$settings_page = 'buddyboss-settings',
 			$capability = 'manage_options',
 			$form_action = 'options.php',
 			$plugin_settings_url;
@@ -108,7 +109,7 @@ if (!class_exists('BuddyBoss_Global_Search_Admin')):
 				return;
 			}
 
-			$this->plugin_settings_url = admin_url( 'options-general.php?page=' . $this->plugin_slug );
+			$this->plugin_settings_url = admin_url( 'admin.php?page=' . $this->plugin_slug );
 
 			$this->network_activated = $this->is_network_activated();
 
@@ -146,6 +147,7 @@ if (!class_exists('BuddyBoss_Global_Search_Admin')):
 			}
 			
 			add_action( 'admin_init', array( $this, 'admin_init' ) );
+			add_action( 'admin_init', array($this, 'register_support_settings' ) );
 			add_action( $this->menu_hook, array( $this, 'admin_menu' ) );
 
 			add_filter( 'plugin_action_links', array( $this, 'add_action_links' ), 10, 2 );
@@ -180,6 +182,9 @@ if (!class_exists('BuddyBoss_Global_Search_Admin')):
 		 * @uses add_settings_field() Add settings page option
 		 */
 		public function admin_init() {
+			
+			$this->plugin_settings_tabs['buddyboss_global_search_plugin_options'] = 'General';
+			
 			register_setting( 'buddyboss_global_search_plugin_options', 'buddyboss_global_search_plugin_options', array($this, 'plugin_options_validate'));
 			add_settings_section( 'general_section', __( 'General Settings', 'buddypress-global-search' ), array($this, 'section_general'), __FILE__);
 			//add_settings_section( 'style_section', 'Style Settings', array( $this, 'section_style' ), __FILE__ );
@@ -187,7 +192,20 @@ if (!class_exists('BuddyBoss_Global_Search_Admin')):
 			add_settings_field('items-to-search', __( 'Items To Search', 'buddypress-global-search' ), array($this, 'setting_items_to_search'), __FILE__, 'general_section');
 			add_settings_field('enable-ajax-search', __( 'AutoSuggest', 'buddypress-global-search' ), array($this, 'setting_enable_ajax_search'), __FILE__, 'general_section');
 		}
+		
+		function register_support_settings() {
+			$this->plugin_settings_tabs[ 'buddyboss_global_search_support_options' ] = __('Support','buddypress-global-search');
 
+			register_setting( 'buddyboss_global_search_support_options', 'buddyboss_global_search_support_options' );
+			add_settings_section( 'section_support', ' ', array( &$this, 'section_support_desc' ), 'buddyboss_global_search_support_options' );
+		}
+		
+		function section_support_desc() {
+			if ( file_exists( dirname( __FILE__ ) . '/help-support.php' ) ) {
+				require_once( dirname( __FILE__ ) . '/help-support.php' );
+			}
+		}
+		
 		/**
 		 * Add plugin settings page
 		 *
@@ -198,7 +216,7 @@ if (!class_exists('BuddyBoss_Global_Search_Admin')):
 		public function admin_menu() {
 			//add_options_page('BP Global Search', 'BP Global Search', 'manage_options', __FILE__, array($this, 'options_page'));
 			add_submenu_page(
-				$this->settings_page, 'BP Global Search', 'BP Global Search', $this->capability, $this->plugin_slug, array( $this, 'options_page' )
+				$this->settings_page, 'BP Global Search', 'Global Search', $this->capability, $this->plugin_slug, array( $this, 'options_page' )
 			);
 		}
 
@@ -216,29 +234,31 @@ if (!class_exists('BuddyBoss_Global_Search_Admin')):
 		 * @uses esc_attr_e() Escape and localize text
 		 */
 		public function options_page() {
+			$tab = isset( $_GET['tab'] ) ? $_GET['tab'] : __FILE__;
 			?>
 			<div class="wrap">
 				<h2><?php _e( 'BuddyPress Global Search', 'buddypress-global-search' ); ?></h2>
-				<div class="updated fade">
-					<p><?php _e( 'Need BuddyPress customizations?', 'buddypress-global-search' ); ?>  &nbsp;<a href="http://buddyboss.com/buddypress-developers/" target="_blank"><?php _e( 'Say hello.', 'buddypress-global-search' ); ?></a></p>
-				</div>
+				<?php $this->plugin_options_tabs(); ?>
 				<div class="content-wrapper clearfix">
 					<div class="settings">
 						<div class="padder">
 							<form method="post" action="<?php echo $this->form_action; ?>">
-
 								<?php
 								if ( $this->network_activated && isset($_GET['updated']) ) {
 									echo "<div class='updated'><p>" . __('Settings updated.', 'buddypress-edit-activity') . "</p></div>";
 								}
-								?>
 								
-								<?php settings_fields('buddyboss_global_search_plugin_options'); ?>
-								<?php do_settings_sections(__FILE__); ?>
-
-								<p class="submit">
-									<input name="bboss_g_s_settings_submit" type="submit" class="button-primary" value="<?php esc_attr_e('Save Changes'); ?>" />
-								</p>
+								if ( 'buddyboss_global_search_plugin_options' == $tab || empty($_GET['tab']) ) {
+									settings_fields( 'buddyboss_global_search_plugin_options' );
+									do_settings_sections( __FILE__ ); ?>
+									<p class="submit">
+										<input name="bboss_g_s_settings_submit" type="submit" class="button-primary" value="<?php esc_attr_e( 'Save Changes' ); ?>" />
+									</p><?php
+								} else {
+									settings_fields( $tab );
+									do_settings_sections( $tab );
+								} ?>
+									
 							</form>
 						</div>
 					</div>
@@ -248,6 +268,17 @@ if (!class_exists('BuddyBoss_Global_Search_Admin')):
 			<?php
 		}
 
+		function plugin_options_tabs() {
+			$current_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'buddyboss_global_search_plugin_options';
+
+			echo '<h2 class="nav-tab-wrapper">';
+			foreach ( $this->plugin_settings_tabs as $tab_key => $tab_caption ) {
+				$active = $current_tab == $tab_key ? 'nav-tab-active' : '';
+				echo '<a class="nav-tab ' . $active . '" href="?page=' . 'buddyboss-globalsearch' . '&tab=' . $tab_key . '">' . $tab_caption . '</a>';
+			}
+			echo '</h2>';
+		}
+		
 		/**
 		 * General settings section
 		 *

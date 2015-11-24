@@ -57,7 +57,16 @@ if (!class_exists('BBoss_Global_Search_CPT')):
 			$query_placeholder[] = $search_term;
 			$query_placeholder[] = $search_term;
 			$query_placeholder[] = $this->cpt_name;
-			return $wpdb->prepare( $sql, $query_placeholder );
+			$sql = $wpdb->prepare( $sql, $query_placeholder );
+            return apply_filters( 
+                'BBoss_Global_Search_CPT_sql', 
+                $sql, 
+                array( 
+                    'post_type'             => $this->cpt_name, 
+                    'search_term'           => $search_term,
+                    'only_totalrow_count'   => $only_totalrow_count,
+                ) 
+            );
 		}
 		
 		protected function generate_html( $template_type='' ){
