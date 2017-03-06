@@ -315,6 +315,8 @@ if (!class_exists('BBoss_Global_Search_Helper')):
 				'template_type'		=> '',
 			);
 			
+			$args = apply_filters('bboss_global_search_filter_args', $args);
+			
 			$args = wp_parse_args( $args, $defaults );
 			
 			$this->search_args = $args;//save it for using in other methods
